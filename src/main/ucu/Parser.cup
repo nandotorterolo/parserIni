@@ -1,0 +1,51 @@
+package ucu;
+import java.util.HashMap;
+import java.util.ArrayList;
+
+parser code
+{:
+   public HashMap<String,HashMap<String, String>> file = new HashMap<String,HashMap<String, String>>();
+:}
+
+/* Terminals (tokens returned by the scanner). */
+terminal String SECCION, ELEMENTO;
+
+/* Non-terminals */
+non terminal HashMap<String,HashMap<String, String>> inifile;
+non terminal HashMap<String, String> elementos;
+non terminal String[] elem;
+
+/* The grammar */
+
+inifile ::=
+   SECCION:s elementos:e
+   {:
+      file.put(s,e);
+   :}
+   |
+   SECCION:s elementos:e inifile
+   {:
+      file.put(s,e);
+   :}
+   ;
+
+elementos ::=
+   elem:e
+   {:
+      HashMap<String, String> elementos = new HashMap<String, String>();
+      elementos.put(e[0],e[1]);
+      RESULT = elementos;
+   :}
+   |
+   elem:e elementos:elementos
+   {:
+      elementos.put(e[0],e[1]);
+      RESULT = elementos;
+   :}
+   ;
+
+elem ::= ELEMENTO:e
+   {:
+      RESULT = e.split("=");
+   :}
+   ;
