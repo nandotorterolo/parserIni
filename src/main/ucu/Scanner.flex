@@ -41,10 +41,8 @@ EndOfLineComment     = "//" {InputCharacter}* {LineTerminator}?
 DocumentationComment = "/**" {CommentContent} "*"+ "/"
 CommentContent       = ( [^*] | \*+ [^/*] )*
 
-
 %%
 \[.*\]       { return symbol(SECCION,yytext()); }
-\.*=[^\s].*  { return symbol(ELEMENTO,yytext()); }
+.*=[^\s].*  { return symbol(ELEMENTO,yytext()); }
 [ \r\n\t\f]	 { /* ignorar */ }
-
-.                    {throw new Error("Illegal character <"+yytext()+">"); }
+.            {throw new Error("Illegal character <"+yytext()+">"); }

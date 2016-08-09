@@ -5,6 +5,7 @@ import java_cup.runtime.Symbol;
 
 import java.io.CharArrayReader;
 import java.io.Reader;
+import java.util.HashMap;
 
 /**
  * Created by fernando on 25/06/15.
@@ -30,6 +31,10 @@ public class Parse {
             // throw new IllegalStateException("parsing" + val, e);
             return new IllegalStateException("parsing" + val, e);
         }
+    }
+
+    public static HashMap<String,HashMap<String, String>> getFile() {
+        return parser.file;
     }
 
 //    public static void registrar(String key, SFXFactory clazz) {

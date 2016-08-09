@@ -37,9 +37,9 @@ public class Scanner implements java_cup.runtime.Scanner, sym {
    */
   private static final String ZZ_CMAP_PACKED = 
     "\11\0\1\2\1\1\1\4\1\1\1\1\22\0\1\2\11\0\1\0"+
-    "\3\0\1\6\1\0\15\0\1\7\35\0\1\3\1\0\1\5\47\0"+
-    "\1\4\32\0\1\10\u15df\0\1\10\u097f\0\13\10\35\0\1\4\1\4"+
-    "\5\0\1\10\57\0\1\10\u0fa0\0\1\10\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\ud00f\0";
+    "\4\0\1\0\15\0\1\6\35\0\1\3\1\0\1\5\47\0\1\4"+
+    "\32\0\1\7\u15df\0\1\7\u097f\0\13\7\35\0\1\4\1\4\5\0"+
+    "\1\7\57\0\1\7\u0fa0\0\1\7\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\ud00f\0";
 
   /** 
    * Translates characters to character classes
@@ -52,10 +52,11 @@ public class Scanner implements java_cup.runtime.Scanner, sym {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\1\2\3\1\1\0\1\3\2\0\1\4";
+    "\1\0\1\1\2\2\2\1\3\0\1\3\1\0\2\4"+
+    "\1\3";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[11];
+    int [] result = new int[14];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -80,11 +81,11 @@ public class Scanner implements java_cup.runtime.Scanner, sym {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\11\0\11\0\22\0\33\0\44\0\22\0\22"+
-    "\0\33\0\44\0\55";
+    "\0\0\0\10\0\20\0\10\0\30\0\40\0\10\0\40"+
+    "\0\30\0\30\0\50\0\60\0\70\0\70";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[11];
+    int [] result = new int[14];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -107,13 +108,16 @@ public class Scanner implements java_cup.runtime.Scanner, sym {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\2\3\1\4\1\0\1\2\1\5\1\6\1\2"+
-    "\11\0\1\7\1\0\2\7\1\0\1\10\3\7\6\0"+
-    "\1\11\1\12\1\0\1\13\2\0\1\13\1\0\3\13"+
-    "\1\0\1\13\1\0\2\13\1\0\4\13";
+    "\1\2\1\3\1\4\1\5\1\0\1\2\1\6\1\2"+
+    "\1\7\1\0\2\7\1\0\1\7\1\10\1\7\10\0"+
+    "\1\11\1\0\2\11\1\0\1\12\1\13\1\11\1\14"+
+    "\1\0\1\7\1\14\1\0\2\14\1\7\1\15\1\0"+
+    "\1\11\1\15\1\0\1\16\1\15\1\11\1\14\1\0"+
+    "\2\14\1\0\3\14\1\15\1\0\2\15\1\0\1\16"+
+    "\2\15";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[54];
+    int [] result = new int[64];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -151,10 +155,10 @@ public class Scanner implements java_cup.runtime.Scanner, sym {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\2\11\3\1\1\0\1\1\2\0\1\1";
+    "\1\0\1\1\1\11\3\1\3\0\1\1\1\0\3\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[11];
+    int [] result = new int[14];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -260,7 +264,7 @@ public class Scanner implements java_cup.runtime.Scanner, sym {
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-    while (i < 106) {
+    while (i < 104) {
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);

@@ -4,6 +4,8 @@ import junit.framework.TestCase;
 
 import ucu.Parse;
 import org.junit.Assert;
+
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,12 +25,25 @@ public class TestIniFile extends TestCase {
     public void testTrue() {
         String value = "[owner]\n" +
                 "name=asfdasasdfsa\n" +
-                "organization=asfdasdf.";
-//        logger.log(Level.INFO, value);
+                "organization=asfdasdf\n";
+
         try {
             Parse.parse(value);
+
+            HashMap<String,HashMap<String,String>> file = Parse.getFile();// .get("owner");
+            if (file == null) {
+                logger.log(Level.SEVERE, "file undefined error");
+            }else {
+                HashMap<String,String> section = file.get("[owner]");
+                if (section == null) {
+                    logger.log(Level.INFO, " section undefined");
+                }else {
+                    section.forEach((k,v) -> logger.log(Level.INFO, k + " " +v));
+
+                }
+            }
         }catch (Exception e){
-            logger.log(Level.SEVERE, e.getLocalizedMessage());
+            logger.log(Level.SEVERE, e.getMessage(), e.getCause());
         }
     }
 
